@@ -1,10 +1,10 @@
-export interface IUserRequest {
-    id: number,
-    name: string,
-    email: string,
-    password: string,
-    admin: boolean,
-    active: boolean
-}
+import { z } from "zod"
+import { returnUserSchema, createUserSchema } from './../schemas/users.schemas';
 
-export type IUserWithoutPassword = Omit<IUserRequest, "password">
+
+export type IUserRequest = z.infer<typeof createUserSchema>
+
+export type IUserWithoutPassword = z.infer<typeof returnUserSchema>
+
+
+

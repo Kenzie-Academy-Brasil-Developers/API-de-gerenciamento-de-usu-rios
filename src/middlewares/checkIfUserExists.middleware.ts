@@ -7,10 +7,6 @@ export const checkIfUserExistsMiddleware = async (req: Request, res: Response, n
 
     const userEmail: string = req.body.email
 
-    if (!userEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userEmail)) {
-        throw new AppError("Endereço de e-mail inválido", 400)
-    }
-
     const queryString: string = `
         SELECT
             *
@@ -26,7 +22,6 @@ export const checkIfUserExistsMiddleware = async (req: Request, res: Response, n
     }
 
     const queryResult: QueryResult = await client.query(queryConfig)
-    console.log(queryResult.rowCount);
     
     if (queryResult.rowCount >= 1) {
         throw new AppError("E-mail already registered", 409)

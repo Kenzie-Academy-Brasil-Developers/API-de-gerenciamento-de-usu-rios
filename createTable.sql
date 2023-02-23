@@ -3,7 +3,7 @@ CREATE TABLE users(
   "name" VARCHAR(20) NOT NULL,
   "email" VARCHAR(100) NOT NULL UNIQUE,
   "password" VARCHAR(120) NOT NULL ,
-  "admin" BOOLEAN  NOT NULL,
-  "active" BOOLEAN  NOT NULL
+  "admin" BOOLEAN  NOT NULL DEFAULT FALSE,
+  "active" BOOLEAN  NOT NULL DEFAULT TRUE
 );
 

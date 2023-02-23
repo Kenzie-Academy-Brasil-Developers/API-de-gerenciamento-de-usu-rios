@@ -1,10 +1,11 @@
 import { Router } from "express";
 import { createUsersController } from './../controllers/users.controllers';
-import { checkIfUserExistsMiddleware } from '../middlewares/checkIfUserExists.iddleware ';
-
+import { checkIfUserExistsMiddleware } from '../middlewares/checkIfUserExists.middleware';
+import { ensureDataIsValid } from "../middlewares/validateBody.middlewares";
+import  { createUserSchema } from  "../schemas/users.schemas"
 const usersRoutes: Router = Router();
 
-usersRoutes.post('', checkIfUserExistsMiddleware, createUsersController)
+usersRoutes.post('', checkIfUserExistsMiddleware, ensureDataIsValid(createUserSchema), createUsersController)
 
 
 export default usersRoutes
