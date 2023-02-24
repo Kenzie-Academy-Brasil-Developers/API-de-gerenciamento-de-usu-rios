@@ -9,7 +9,7 @@ export const ensureTokenIsValid = (req: Request, res: Response, next: NextFuncti
     let token = req.headers.authorization
 
     if (!token) {
-        throw new AppError('Token is missing', 401)
+        throw new AppError("Missing Bearer Token", 401)
     }
 
     token = token.split(" ")[1]
