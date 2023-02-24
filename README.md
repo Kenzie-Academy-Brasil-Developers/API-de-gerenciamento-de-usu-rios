@@ -19,12 +19,12 @@ Este projeto consiste em um serviço para criar, atualizar, listar e deletar usu
 
 O serviço utiliza um banco de dados PostgreSQL com uma tabela users para armazenar os dados das requisições. A tabela users contém as seguintes colunas:
 
-**** id: inteiro, sequencial e chave primária.
-name: caractere, tamanho máximo de 20 e obrigatório.
-email: caractere, tamanho máximo de 100, único e obrigatório.
-password: caractere, tamanho máximo de 120 e obrigatório.
-admin: booleano, obrigatório e falso por padrão.
-active: booleano, obrigatório e verdadeiro por padrão.
+1. id: inteiro, sequencial e chave primária.
+2. name: caractere, tamanho máximo de 20 e obrigatório.
+3. email: caractere, tamanho máximo de 100, único e obrigatório.
+4. password: caractere, tamanho máximo de 120 e obrigatório.
+5. admin: booleano, obrigatório e falso por padrão.
+6. active: booleano, obrigatório e verdadeiro por padrão.
 
 
 ## Regras do Serviço
