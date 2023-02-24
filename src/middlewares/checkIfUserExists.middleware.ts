@@ -7,6 +7,7 @@ export const checkIfUserExistsMiddleware = async (req: Request, res: Response, n
 
     const userEmail: string = req.body.email
 
+    
     const queryString: string = `
         SELECT
             *
@@ -23,7 +24,7 @@ export const checkIfUserExistsMiddleware = async (req: Request, res: Response, n
 
     const queryResult: QueryResult = await client.query(queryConfig)
     
-    if (queryResult.rowCount >= 1 && req.method == "POST") {
+    if (queryResult.rowCount >= 1 && req.method) {
         throw new AppError("E-mail already registered", 409)
     }
  

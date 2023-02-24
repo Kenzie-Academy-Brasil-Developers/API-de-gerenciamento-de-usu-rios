@@ -10,7 +10,7 @@ const usersRoutes: Router = Router();
 usersRoutes.post('', checkIfUserExistsMiddleware, ensureDataIsValid(createUserSchema), postUsersController)
 usersRoutes.get('', ensureTokenIsValid, checkIfUserAdminMiddleware, getUsersController)
 usersRoutes.get('/profile', ensureTokenIsValid, getProfileController)
-usersRoutes.patch('/:id', ensureTokenIsValid, ensureDataIsValid(UserUpdateSchema), updateProfileController)
+usersRoutes.patch('/:id', ensureTokenIsValid, ensureDataIsValid(UserUpdateSchema), checkIfUserExistsMiddleware, updateProfileController)
 usersRoutes.delete('/:id', ensureTokenIsValid, deleteProfileController)
 usersRoutes.put('/:id/recover', ensureTokenIsValid, checkIfUserAdminMiddleware, putRecoverProfileController)
 

@@ -12,7 +12,7 @@ export const updateUsersService = async (dataUserUpadate: any, idUser: number): 
         UPDATE
             users
         SET
-          (%L) = ROW (%I)
+          (%I) = ROW (%L)
         WHERE
             id = $1
           RETURNING *;
