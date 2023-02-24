@@ -42,7 +42,7 @@ A senha não deve ser retornada em todas as rotas do serviço.
 
 O e-mail deve ser único. Nas rotas POST e PATCH /users, caso seja enviado um e-mail já registrado, deve retornar a mensagem de erro abaixo. O status code deve ser o mencionado abaixo.
 
-```kotlin
+```css
     Status Code: 409 CONFLICT.
     {
     "message": "E-mail already registered"
@@ -50,18 +50,21 @@ O e-mail deve ser único. Nas rotas POST e PATCH /users, caso seja enviado um e-
 ```
 A serialização dos dados de entrada deve ser feita utilizando o zod. Essa serialização deve acontecer em todas as rotas POST e PATCH. Caso haja erro ao validar os dados, a mensagem retornada deve seguir o seguinte padrão:
 
-css
-Copy code
-Status Code: 400 BAD REQUEST.
-{
-  "name": [ "Required" ],
-  "email": [ "Invalid email" ],
-  "password": [ "Expected string, received number" ]
-}
+```css
+        Status Code: 400 BAD REQUEST.
+        {
+          "name": [ "Required" ],
+          "email": [ "Invalid email" ],
+          "password": [ "Expected string, received number" ]
+        }
+```
+
 As rotas GET, PATCH, DELETE e PUT devem estar protegidas por um middleware de validação do token JWT. Caso o token não seja enviado, deve retornar a mensagem de erro abaixo. Caso ocorra um erro na decodificação do token JWT, deve retornar a mensagem de erro padrão da biblioteca. O status code de ambos casos deve ser o mencionado abaixo.
 
-css
-Copy code
-Status Code: 401 UNAUTHORIZED.
-{
-  "message":
+```css
+
+    Status Code: 401 UNAUTHORIZED.
+    {
+      "message":
+    }
+```
