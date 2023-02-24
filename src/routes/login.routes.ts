@@ -1,11 +1,11 @@
 import { Router } from "express";
-import { checkIfUserExistsMiddleware } from '../middlewares/checkIfUserExists.middleware';
+import { loginController } from "../controllers/login.controllers";
 import { ensureDataIsValid } from "../middlewares/validateBody.middlewares";
-import { createUserSchema } from "../schemas/users.schemas"
+import { loginSchema } from "../schemas/login.schemas";
 
 const loginRoutes: Router = Router();
 
-loginRoutes.post('', checkIfUserExistsMiddleware, ensureDataIsValid(createUserSchema), )
+loginRoutes.post('', ensureDataIsValid(loginSchema), loginController )
 
 
 export default loginRoutes
