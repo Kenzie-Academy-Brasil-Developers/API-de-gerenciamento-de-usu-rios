@@ -1,4 +1,4 @@
-###  API de gerenciamento de usuários
+#  API de gerenciamento de usuários
 
 Essa API permite a criação e gerenciamento de usuários, permitindo a criação, listagem, atualização e exclusão de usuários por meio de endpoints REST.
 Este projeto consiste em um serviço para criar, atualizar, listar e deletar usuários. O serviço também permite a autenticação de usuários por meio da geração de um token JWT. A autenticação é obrigatória para a utilização das rotas GET /users, GET /users/profile, PATCH /users/:id, DELETE /users/:id e PUT /users/:id/recover.
@@ -17,7 +17,7 @@ Este projeto consiste em um serviço para criar, atualizar, listar e deletar usu
 
 ## Banco de Dados
 
-# O serviço utiliza um banco de dados PostgreSQL com uma tabela users para armazenar os dados das requisições. A tabela users contém as seguintes colunas:
+### O serviço utiliza um banco de dados PostgreSQL com uma tabela users para armazenar os dados das requisições. A tabela users contém as seguintes colunas:
 
 id: inteiro, sequencial e chave primária.
 
