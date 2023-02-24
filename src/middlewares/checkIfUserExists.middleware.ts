@@ -23,10 +23,10 @@ export const checkIfUserExistsMiddleware = async (req: Request, res: Response, n
 
     const queryResult: QueryResult = await client.query(queryConfig)
     
-    if (queryResult.rowCount >= 1) {
+    if (queryResult.rowCount >= 1 && req.method == "POST") {
         throw new AppError("E-mail already registered", 409)
     }
-
+ 
     return next()
 
 }

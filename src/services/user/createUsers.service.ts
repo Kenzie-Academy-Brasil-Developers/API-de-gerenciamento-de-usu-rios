@@ -1,11 +1,11 @@
 
 import { QueryResult } from "pg";
 import format from "pg-format";
-import { IUserRequest, IUserWithoutPassword  } from "../../interfaces/users.interfaces";
+import { IUserRequest, IUserWithoutPassword } from "../../interfaces/users.interfaces";
 import { returnUserSchema } from "../../schemas/users.schemas";
 import { client } from './../../database/conection';
 
-export const createUsersService = async (userData: IUserRequest): Promise<IUserWithoutPassword > => {
+export const createUsersService = async (userData: IUserRequest): Promise<IUserWithoutPassword> => {
 
     const queryString: string = format(
         `
@@ -21,9 +21,9 @@ export const createUsersService = async (userData: IUserRequest): Promise<IUserW
     )
 
     const queryResult: QueryResult<IUserWithoutPassword> = await client.query(queryString)
-    
+
     const responseUser = returnUserSchema.parse(queryResult.rows[0])
-    
+
 
     return responseUser
 
