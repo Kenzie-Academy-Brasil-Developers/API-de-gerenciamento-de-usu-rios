@@ -1,6 +1,26 @@
+<<<<<<< HEAD
 API de gerenciamento de usuários
 
 Este projeto consiste em um serviço para criar, atualizar, listar e deletar usuários. O serviço também permite a autenticação de usuários por meio da geração de um token JWT. A autenticação é obrigatória para a utilização das rotas GET /users, GET /users/profile, PATCH /users/:id, DELETE /users/:id e PUT /users/:id/recover.
+=======
+## API de gerenciamento de usuários
+
+
+Essa API permite a criação e gerenciamento de usuários, permitindo a criação, listagem, atualização e exclusão de usuários por meio de endpoints REST.
+Este projeto consiste em um serviço para criar, atualizar, listar e deletar usuários. O serviço também permite a autenticação de usuários por meio da geração de um token JWT. A autenticação é obrigatória para a utilização das rotas GET /users, GET /users/profile, PATCH /users/:id, DELETE /users/:id e PUT /users/:id/recover.
+
+## Endpoints do Serviço
+
+
+| Método | Endpoint | Responsabilidade |
+| --- | --- |---|
+| Método | Endpoint | Responsabilidade |
+| Método | Endpoint | Responsabilidade |
+| Método | Endpoint | Responsabilidade |
+| Método | Endpoint | Responsabilidade |
+| Método | Endpoint | Responsabilidade |
+| Método | Endpoint | Responsabilidade |
+>>>>>>> 8a0fcff1d80a01b4478af394c5a15a8c6a78091b
 
 Endpoints do Serviço
 Método Endpoint Responsabilidade
