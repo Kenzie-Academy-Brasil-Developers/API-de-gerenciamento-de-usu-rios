@@ -1,9 +1,10 @@
 
 import { QueryConfig, QueryResult } from "pg";
-import { IUserRequest } from "../../interfaces/users.interfaces";
+import { IUserWithoutPassword } from "../../interfaces/users.interfaces";
 import { client } from '../../database/conection';
+import { returnUserSchema } from "../../schemas/users.schemas";
 
-export const getProfileService = async (userId: number): Promise<IUserRequest> => {
+export const getProfileService = async (userId: number): Promise<IUserWithoutPassword> => {
     const queryString: string =
         `
         SELECT
@@ -18,8 +19,10 @@ export const getProfileService = async (userId: number): Promise<IUserRequest> =
         values: [userId]
     }
 
-    const queryResult: QueryResult<IUserRequest> = await client.query(queryConfig)
+    const queryResult: QueryResult<IUserWithoutPassword> = await client.query(queryConfig)
 
-    return queryResult.rows[0]
 
+    const responseUser = returnUserSchema.parse(queryResult.rows[0])
+
+    return responseUser
 }
